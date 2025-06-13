@@ -1,13 +1,24 @@
+
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
+import { ThemeProvider } from './context/ThemeContext'
+import { CartProvider } from './context/CartContext'
+import Footer from './components/Footer'
 
 function App() {
 
 
   return (
-    <>
-     <h1 className='text-red-400 text-center font-extrabold text-4xl'>Hi Developers!</h1>
-    
-    </>
+    <ThemeProvider>
+      <CartProvider>
+        <Navbar />
+        <main className='min-h-screen'>
+          <Outlet />
+        </main>
+        <Footer />
+      </CartProvider>
+    </ThemeProvider>
   )
 }
 
